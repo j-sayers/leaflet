@@ -107,8 +107,11 @@ export default class LayerManager {
             let groupKeys = Object.keys(ctg);
             for (let i = 0; i < groupKeys.length; i++) {
               let key = groupKeys[i];
-              let layerInfo = this._byStamp[ctg[key]];
-              this._setVisibility(layerInfo, true);
+              let ctgs = ctg[key];
+              for (let i2 = 0; i2 < ctgs.length; i2++) {
+             let layerInfo = this._byStamp[ctgs[i2]];
+            this._setVisibility(layerInfo, true);
+            }
             }
           } else {
             let selectedKeys = {};
@@ -118,8 +121,11 @@ export default class LayerManager {
             let groupKeys = Object.keys(ctg);
             for (let i = 0; i < groupKeys.length; i++) {
               let key = groupKeys[i];
-              let layerInfo = this._byStamp[ctg[key]];
-              this._setVisibility(layerInfo, selectedKeys[groupKeys[i]]);
+              let ctgs = ctg[key];
+              for (let i2 = 0; i2 < ctgs.length; i2++) {
+                let layerInfo = this._byStamp[ctgs[i2]];
+                this._setVisibility(layerInfo, selectedKeys[groupKeys[i]]);
+              }
             }
           }
         };
@@ -131,8 +137,11 @@ export default class LayerManager {
             let groupKeys = Object.keys(ctg);
             for (let i = 0; i < groupKeys.length; i++) {
               let key = groupKeys[i];
-              let layerInfo = this._byStamp[ctg[key]];
-              this._setOpacity(layerInfo, 1.0);
+              let ctgs = ctg[key];
+              for (let i2 = 0; i2 < ctgs.length; i2++) {
+                let layerInfo = this._byStamp[ctgs[i2]];
+                this._setOpacity(layerInfo, 1.0);
+              }
             }
           } else {
             let selectedKeys = {};
@@ -142,8 +151,11 @@ export default class LayerManager {
             let groupKeys = Object.keys(ctg);
             for (let i = 0; i < groupKeys.length; i++) {
               let key = groupKeys[i];
-              let layerInfo = this._byStamp[ctg[key]];
-              this._setOpacity(layerInfo, selectedKeys[groupKeys[i]] ? 1.0 : 0.2);
+              let ctgs = ctg[key];
+              for (let i2 = 0; i2 < ctgs.length; i2++) {
+                let layerInfo = this._byStamp[ctgs[i2]];
+                this._setOpacity(layerInfo, selectedKeys[groupKeys[i]] ? 1.0 : 0.2);
+              }
             }
           }
         };
